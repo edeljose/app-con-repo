@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  web:
+    image: edeljose/app-php:v1
+    ports:
+      - "8084:80"
+    deploy:
+      replicas: 3
+      update_config:
+        parallelism: 1
+        delay: 10s
+      restart_policy:
+        condition: on-failure
